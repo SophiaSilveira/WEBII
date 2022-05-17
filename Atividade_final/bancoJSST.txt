@@ -1,0 +1,47 @@
+CREATE DATABASE imobiliaria;
+use imobiliaria;
+CREATE TABLE proprietario(
+		CPF char(14) PRIMARY KEY,
+    	nome varchar(50) not null,
+    	dataNascimento date not null,
+	);
+CREATE TABLE imovel(
+		id int PRIMARY KEY AUTO_INCREMENT,
+    	cidade varchar(50) not null,
+    	bairro varchar(50) not null,
+    	rua varchar(50) not null,
+    	numero int not null,
+    	complemento varchar(20) ,
+    	cep char(10) not null,
+    	CPF_p char(14),
+    	FOREIGN KEY(CPF_P) REFERENCES proprietario(CPF)
+	);
+CREATE TABLE corretor(
+		CPF char(14) PRIMARY KEY,
+    	nome varchar(50) not null,
+    	dataNascimento date not null
+	);
+CREATE TABLE contactar(
+		id int PRIMARY KEY AUTO_INCREMENT,
+    	dataContato date not null,
+    	CPF_p char(14),
+    	CPF_c char(14),
+    	FOREIGN KEY(CPF_p) REFERENCES proprietario(CPF),
+    	FOREIGN KEY(CPF_c) REFERENCES corretor(CPF)
+	);
+CREATE TABLE inquilino(
+		CPF char(14) PRIMARY KEY,
+    	nome varchar(50) not null,
+    	dataNascimento date not null,
+    	salario decimal(7,2) not null,
+    	id_imovel int,
+    	FOREIGN KEY(id_imovel) REFERENCES imovel(id)
+	);
+CREATE TABLE atender(
+		id int PRIMARY KEY AUTO_INCREMENT,
+    	dataAtendimento date not null,
+    	CPF_i char(14),
+    	CPF_c char(14),
+    	FOREIGN KEY(CPF_i) REFERENCES inquilino(CPF),
+    	FOREIGN KEY(CPF_c) REFERENCES corretor(CPF),
+	);
