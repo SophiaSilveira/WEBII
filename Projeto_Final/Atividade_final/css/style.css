@@ -88,6 +88,7 @@ li{
 .footer{
     width: 97%;
     height: 10%;
+    margin-bottom: -57px;
     border-radius: 20px;
     background-image: linear-gradient( to right, #FFC7A1, #FFC7A1, #F6F894, #CFF0FF, #C5B4E8, #FFB9DE, #FFB9DE);
 }
