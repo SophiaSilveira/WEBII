@@ -15,6 +15,7 @@
     //instancia de dompdf
     $dompdf = new Dompdf($options);
 
+
     //carrega o html para dentro da classe
     $dompdf->loadhtml('
 
