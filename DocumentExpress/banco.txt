@@ -1,0 +1,57 @@
+CREATE DATABASE DocumentExpress;
+
+use DocumentExpress;
+
+CREATE TABLE usuario(
+		CPF char(14) PRIMARY KEY,
+    	nome varchar(50) not null,
+        rg int not null,
+        cep char (10) not null,
+        estado varchar (30),
+        cidade varchar (50),
+        bairro varchar (50),
+        rua varchar (50),
+        numero int not null,
+        complemento varchar (30),
+        data_Nascimento date not null,
+        email varchar (40) not null,
+        senha varchar (8) not null
+    	
+	);
+
+CREATE TABLE ativo(
+		cnpj char(18) PRIMARY KEY,
+        namePjEm varchar (50) not null,
+    	CPF_U char(14),
+    	FOREIGN KEY(CPF_U) REFERENCES usuario(CPF)
+	);
+
+CREATE TABLE servico(
+		id_S int PRIMARY KEY AUTO_INCREMENT,
+    	descricao varchar(100),
+    	nome_Contratante varchar (50),
+        cpf_Cnpj varchar(14),
+        data_Inicio date,
+        data_Final date,
+        quantidade_Mensal decimal(8,2) not null,
+        lista_Atividade varchar(150),
+        garantia varchar(45),
+        cnpj_A char(18),
+        FOREIGN KEY(cnpj_A) REFERENCES ativo(cnpj)
+	);
+
+CREATE TABLE autonomo(
+		id_A int PRIMARY KEY AUTO_INCREMENT,
+    	descriver_Atividade varchar(50) not null,
+    	renda_Mensal decimal(8,2) not null,
+        CPF_U char(14),
+        FOREIGN KEY(CPF_U) REFERENCES usuario(CPF)
+	);
+
+CREATE TABLE imovel(
+        id_I int PRIMARY KEY AUTO_INCREMENT,
+		anos_Inicio date,
+        anos_Fim date,
+        CPF_U char(14),
+        FOREIGN KEY(CPF_U) REFERENCES usuario(CPF)
+);
