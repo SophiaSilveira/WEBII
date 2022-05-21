@@ -15,21 +15,15 @@
         </header>
         <nav class="nav flex">
             <ul>
-                <a href="Usuario.php">
-                    <li> Cadastro Usuário</li>
+                <a target="conteudo" href="./cadastro/Autonomo.php">
+                    <li> Declaração para Autonômo</li>
                 </a>
-                <a target="conteudo" href="CadastroImovel.php">
-                    <li> Cadastro do Imóvel</li>
+                <a target="conteudo" href="./cadastro/Imovel.php">
+                    <li> Declaração de Imóvel</li>
                 </a>
-                <a target="conteudo" href="CadastroCorretor.php">
-                    <li> Cadastro do Corretor</li>
-                </a>
-                <a target="conteudo" href="CadastroContactar.php">
-                    <li> Cadastro de Contactar</li>
-                </a>
-                <a target="conteudo" href="CadastroInquilino.php">
-                    <li> Cadastro do Inquilino</li>
-                </a>                
+                <a target="conteudo" href="./cadastro/Servico.php">
+                    <li> Delaraçãode Prestação de Serviço</li>
+                </a>               
             </ul>
         </nav>
         <section class="SIframe">
@@ -42,21 +36,6 @@
                     </a>
                     <a target="conteudo" href="ListarAtendimento.php">
                     <li> Lista Atendimento</li>
-                    </a>
-                    <a target="conteudo" href="ListarContato.php">
-                        <li> Lista Contato</li>
-                    </a>
-                    <a target="conteudo" href="ListarCorretor.php">
-                        <li> Lista Corretor</li>
-                    </a>
-                    <a target="conteudo" href="ListarImovel.php">
-                        <li> Lista Imóvel</li>
-                    </a>
-                    <a target="conteudo" href="ListarInquilino.php">
-                        <li> Lista Inquilino</li>
-                    </a>
-                    <a target="conteudo" href="ListarProprietario.php">
-                        <li> Lista Propeietario</li>
                     </a>
                 </ul>
         </aside>

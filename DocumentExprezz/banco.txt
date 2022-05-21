@@ -1,6 +1,6 @@
-CREATE DATABASE DocumentExpress;
+CREATE DATABASE DocumentExprezz;
 
-use DocumentExpress;
+use DocumentExprezz;
 
 CREATE TABLE usuario(
 		CPF char(14) PRIMARY KEY,
@@ -15,15 +15,9 @@ CREATE TABLE usuario(
         complemento varchar (30),
         data_Nascimento date not null,
         email varchar (40) not null,
-        senha varchar (8) not null
-    	
-	);
-
-CREATE TABLE ativo(
-		cnpj char(18) PRIMARY KEY,
-        namePjEm varchar (50) not null,
-    	CPF_U char(14),
-    	FOREIGN KEY(CPF_U) REFERENCES usuario(CPF)
+        senha varchar (8) not null,
+        cnpj char(18),
+        namePjEm varchar (50) 
 	);
 
 CREATE TABLE servico(
@@ -36,8 +30,8 @@ CREATE TABLE servico(
         quantidade_Mensal decimal(8,2) not null,
         lista_Atividade varchar(150),
         garantia varchar(45),
-        cnpj_A char(18),
-        FOREIGN KEY(cnpj_A) REFERENCES ativo(cnpj)
+        CPF_U char(14),
+        FOREIGN KEY(CPF_U) REFERENCES usuario(CPF)
 	);
 
 CREATE TABLE autonomo(
