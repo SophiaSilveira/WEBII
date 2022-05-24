@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilo.css">
     <title>Projeto Final Parte 1</title>
 </head>
 
@@ -36,6 +36,9 @@
                     </a>
                     <a target="conteudo" href="ListarAtendimento.php">
                     <li> Lista Atendimento</li>
+                    </a>
+                    <a target="conteudo" href="pdf.php">
+                    <li> PDF</li>
                     </a>
                 </ul>
         </aside>

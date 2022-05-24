@@ -2,6 +2,7 @@
 
 /*Configurações gerais*/
 
+
 /*Index.php*/
 
 *{
@@ -112,7 +113,10 @@ UBody{
     justify-content: space-around;
 }
 /*Parte do login*/
+.login{
+    background-color: #ee9e9e;
 
+}
 /*termina o login*/
 /*Parte dos PDFS*/
 
