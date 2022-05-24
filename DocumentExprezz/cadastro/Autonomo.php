@@ -23,6 +23,7 @@
             </select><br>
             <input type="text" name="descriver_Atividade" placeholder="Descrever Atividade" required><br>
             <input  type="text" name="renda_Mensal" placeholder="Reda Aproximada mensal" required><br>
+            <input type="date" name="data_A" required>
             <input type="submit" value="Salvar" name="salvar">
         </form>
         <?php
@@ -30,14 +31,16 @@
             $CPF_U = $_POST['CPF_U'];
             $descriver_Atividade = $_POST['descriver_Atividade'];
             $renda_Mensal = $_POST['renda_Mensal'];
+            $data_A = $_POST['data_A'];
             
-            $sql="INSERT INTO autonomo(descriver_Atividade, renda_Mensal, CPF_U) 
-            VALUE (:descriver_Atividade, :renda_Mensal, :CPF_U) ";
+            $sql="INSERT INTO autonomo(descriver_Atividade, renda_Mensal, data_A, CPF_U) 
+            VALUE (:descriver_Atividade, :renda_Mensal, :data_A, :CPF_U) ";
 
             $stmt=$conn->prepare($sql);
 
             $stmt->bindParam(':descriver_Atividade',$descriver_Atividade,PDO::PARAM_STR);
             $stmt->bindParam(':renda_Mensal',$renda_Mensal,PDO::PARAM_STR);
+            $stmt->bindParam(':data_A',$data_A,PDO::PARAM_STR);
             $stmt->bindParam(':CPF_U',$CPF_U,PDO::PARAM_STR);
        
             $resultado=$stmt->execute();

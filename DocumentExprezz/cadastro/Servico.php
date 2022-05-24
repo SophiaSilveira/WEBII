@@ -29,6 +29,7 @@
             <input type="text" name="quantidade_Mensal" placeholder="Total recebido pelo Contratante" required><br>
             <input type="text" name="lista_Atividade" placeholder="Listar Atividades Feitas" required><br>
             <input type="text" name="garantia" placeholder="Garantia" required><br>
+            <input type="date" name="data_S" required>
             <input type="submit" value="Salvar" name="salvar">
         </form>
         <?php
@@ -42,10 +43,11 @@
             $quantidade_Mensal = $_POST['quantidade_Mensal'];
             $lista_Atividade = $_POST['lista_Atividade'];
             $garantia = $_POST['garantia'];
+            $data_S = $_POST['data_S'];
             
 
-            $sql="INSERT INTO servico(descricao, nome_Contratante, cpf_Cnpj, data_Inicio, data_Final, quantidade_Mensal, lista_Atividade, garantia, CPF_U) 
-            VALUE(:descricao, :nome_Contratante, :cpf_Cnpj, :data_Inicio, :data_Final, :quantidade_Mensal, :lista_Atividade, :garantia, :CPF_U) " ;
+            $sql="INSERT INTO servico(descricao, nome_Contratante, cpf_Cnpj, data_Inicio, data_Final, quantidade_Mensal, lista_Atividade, garantia, data_S, CPF_U) 
+            VALUE(:descricao, :nome_Contratante, :cpf_Cnpj, :data_Inicio, :data_Final, :quantidade_Mensal, :lista_Atividade, :garantia, :data_S, :CPF_U) " ;
 
             $stmt=$conn->prepare($sql);
 
@@ -57,6 +59,7 @@
             $stmt->bindParam(':quantidade_Mensal',$quantidade_Mensal,PDO::PARAM_STR);
             $stmt->bindParam(':lista_Atividade',$lista_Atividade,PDO::PARAM_STR);
             $stmt->bindParam(':garantia',$garantia,PDO::PARAM_STR);
+            $stmt->bindParam(':data_S', $data_S,PDO::PARAM_STR);
             $stmt->bindParam(':CPF_U',$CPF_U,PDO::PARAM_STR);
        
             $resultado=$stmt->execute();

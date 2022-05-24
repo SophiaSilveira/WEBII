@@ -23,6 +23,7 @@
             </select><br>
             <input type="date" name="anos_Inicio" required><br>
             <input  type="date" name="anos_Fim" required><br>
+            <input type="date" name="data_I" required><br>
             <input type="submit" value="Salvar" name="salvar">
         </form>
         <?php
@@ -30,15 +31,18 @@
             $CPF_U = $_POST['CPF_U'];
             $anos_Inicio = $_POST['anos_Inicio'];
             $anos_Fim = $_POST['anos_Fim'];
+            $data_I = $_POST['data_I'];
             
-            $sql="INSERT INTO imovel(anos_Inicio, anos_Fim, CPF_U) 
-            VALUE (:anos_Inicio, :anos_Fim, :CPF_U)  ";
+            $sql="INSERT INTO imovel(anos_Inicio, anos_Fim, data_I, CPF_U) 
+            VALUE (:anos_Inicio, :anos_Fim,:data_I, :CPF_U)  ";
 
             $stmt=$conn->prepare($sql);
 
             $stmt->bindParam(':anos_Inicio',$anos_Inicio,PDO::PARAM_STR);
             $stmt->bindParam(':anos_Fim',$anos_Fim,PDO::PARAM_STR);
+            $stmt->bindParam(':data_I',$data_I,PDO::PARAM_STR);
             $stmt->bindParam(':CPF_U',$CPF_U,PDO::PARAM_STR);
+            
        
             $resultado=$stmt->execute();
             if(!$resultado){
