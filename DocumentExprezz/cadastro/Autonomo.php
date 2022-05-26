@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    ob_start();
+    //include '../Connection.php';  
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,15 +17,6 @@
     <main>
         <h1>Declaração de autônomo</h1>
         <form method="post" action="#">
-            <select name="CPF_U">
-                <?php 
-                    $sql="SELECT CPF, nome FROM usuario";
-                    $resultado=$conn->query($sql);
-                    $tabela=$resultado->fetchAll(PDO::FETCH_ASSOC);
-                    foreach($tabela as $linha){
-                        echo "<option value='".$linha['CPF']."'>".$linha['nome']."</option>";}
-                ?>
-            </select><br>
             <input type="text" name="descriver_Atividade" placeholder="Descrever Atividade" required><br>
             <input  type="text" name="renda_Mensal" placeholder="Reda Aproximada mensal" required><br>
             <input type="date" name="data_A" required>
@@ -28,7 +24,7 @@
         </form>
         <?php
             if(isset($_POST['salvar'])){
-            $CPF_U = $_POST['CPF_U'];
+            $CPF_U = $_SESSION['CPF'];
             $descriver_Atividade = $_POST['descriver_Atividade'];
             $renda_Mensal = $_POST['renda_Mensal'];
             $data_A = $_POST['data_A'];

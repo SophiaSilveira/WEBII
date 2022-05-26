@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    ob_start();
+    //include '../Connection.php';  
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,15 +18,6 @@
     <main>
         <h1>Declaração de Prestação de Serviço</h1>
         <form method="post" action="#">
-            <select name="CPF_U">
-                <?php 
-                    $sql="SELECT CPF, nome FROM usuario";
-                    $resultado=$conn->query($sql);
-                    $tabela=$resultado->fetchAll(PDO::FETCH_ASSOC);
-                    foreach($tabela as $linha){
-                        echo "<option value='".$linha['CPF']."'>".$linha['nome']."</option>";}
-                ?>
-            </select><br>
             <input type="text" name="descricao" placeholder="Descrição" required><br>
             <input  type="text" name="nome_Contratante" placeholder="Nome Contratante" required><br>
             <input type="text" name="cpf_Cnpj" placeholder="CPF ou CNPJ do contratante" required><br>
@@ -34,7 +31,7 @@
         </form>
         <?php
             if(isset($_POST['salvar'])){
-            $CPF_U = $_POST['CPF_U'];
+            $CPF_U = $_SESSION['CPF'];
             $descricao = $_POST['descricao'];
             $nome_Contratante = $_POST['nome_Contratante'];
             $cpf_Cnpj = $_POST['cpf_Cnpj'];

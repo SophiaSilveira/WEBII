@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    ob_start();
+    include 'Connection.php';  
+
+    if((!isset($_SESSION['CPF'])) AND (!isset($_SESSION['nome']))){
+        $_SESSION['msg'] = "<br> Erro: Necessário realizar login!";
+        header("Location:index.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,16 +23,19 @@
 <body class="body">
     <main class="main flex">
         <header class="header">
+            <h3>Bem vindo, <?php Echo $_SESSION['nome']?>!</h3>
+            <h3>de CPF <?php Echo $_SESSION['CPF']?>!</h3>
+            <a href="sair.php">Sair</a>
         </header>
         <nav class="nav flex">
             <ul>
-                <a target="conteudo" href="./cadastro/Autonomo.php">
+                <a target="conteudo" href="./cadastro/autonomo.php">
                     <li> Declaração para Autonômo</li>
                 </a>
-                <a target="conteudo" href="./cadastro/Imovel.php">
+                <a target="conteudo" href="./cadastro/imovel.php">
                     <li> Declaração de Imóvel</li>
                 </a>
-                <a target="conteudo" href="./cadastro/Servico.php">
+                <a target="conteudo" href="./cadastro/servico.php">
                     <li> Delaraçãode Prestação de Serviço</li>
                 </a>               
             </ul>
