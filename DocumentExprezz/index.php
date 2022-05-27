@@ -1,7 +1,7 @@
 <?php
     session_start();
     ob_start();
-    include 'Connection.php';  
+    include 'connection.php';  
 
     if((!isset($_SESSION['CPF'])) AND (!isset($_SESSION['nome']))){
         $_SESSION['msg'] = "<br> Erro: Necessário realizar login!";
@@ -49,12 +49,18 @@
                     <a target="conteudo" href="Aniversariantes.php">
                     <li>Aniversariante do Dia</li>
                     </a>
+                    <a target="conteudo" href="dados/autonomoDados.php">
+                    <li> Dados Autônomo</li>
+                    </a>
                     <a target="conteudo" href="dados/imovelDados.php">
                     <li> Dados Imóvel</li>
                     </a>
-                    <a href="pdf.php" target="_blank" >
-                    <li> PDF</li>
+                    <a target="conteudo" href="dados/servicoDados.php">
+                    <li> Dados Prestação de Serviço</li>
                     </a>
+                    <!--<a href="pdf.php" target="_blank" >
+                    <li> PDF</li>
+                    </a>-->
                 </ul>
         </aside>
         <footer class="footer">

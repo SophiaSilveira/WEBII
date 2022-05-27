@@ -1,7 +1,7 @@
 <?php 
     session_start();
     ob_start();
-    include 'Connection.php';
+    include 'connection.php';
 
     $query_I = "SELECT i.id_I, i.data_I, u.nome, u.CPF FROM imovel i 
                     left join usuario u on u.CPF = i.CPF_U 
@@ -60,7 +60,7 @@
     </nav>
     <section class="sectionInitial">
         <p class="paragraphOne">
-            Eu <?php echo $row_I['nome']?>__________________________________________________________________ residente à
+            Eu <?php echo $row_I['nome']?>_________<?php echo $row_I['id_I']?>_____________________________________ residente à
             _________________________________________________________, nº _______
             complemento___________, Bairro ___________________, município de ________________, RG
             n°__________________,CPF n° <?php echo $row_I['CPF']?>.

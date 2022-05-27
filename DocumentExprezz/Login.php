@@ -1,7 +1,7 @@
 <?php
     session_start();
     ob_start();
-    include 'Connection.php';  
+    include 'connection.php';  
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
