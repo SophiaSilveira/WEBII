@@ -7,6 +7,7 @@
         $_SESSION['msg'] = "<br> Erro: Necessário realizar login!";
         header("Location:index.php");
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -48,10 +49,10 @@
                     <a target="conteudo" href="Aniversariantes.php">
                     <li>Aniversariante do Dia</li>
                     </a>
-                    <a target="conteudo" href="ListarAtendimento.php">
-                    <li> Lista Atendimento</li>
+                    <a target="conteudo" href="dados/imovelDados.php">
+                    <li> Dados Imóvel</li>
                     </a>
-                    <a target="conteudo" href="pdf.php">
+                    <a href="pdf.php" target="_blank" >
                     <li> PDF</li>
                     </a>
                 </ul>

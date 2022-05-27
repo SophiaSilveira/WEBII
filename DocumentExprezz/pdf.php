@@ -36,7 +36,7 @@
     //$dompdf->loadhtml(ob_get_clean());
 
     ob_start();
-    require __DIR__ .'../pdf/servicoPdf.php';
+    require __DIR__ .'../pdf/imovelPdf.php';
     $dompdf->loadhtml(ob_get_clean());   
       
 

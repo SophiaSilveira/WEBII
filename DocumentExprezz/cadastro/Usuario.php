@@ -143,7 +143,7 @@
                     var_dump($stmt->errorInfo());
                     exit;
                 }else{
-                    header('Location:../index.php');
+                    header('Location:../Login.php');
                 }
         }
         else if(isset($_POST['EnviarS'])){
@@ -191,7 +191,7 @@
                     var_dump($stmt->errorInfo());
                     exit;
                 }else{
-                    header('Location:../index.php');
+                    header('Location:../Login.php');
                 }
         } ?>
     </main>

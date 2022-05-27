@@ -55,6 +55,6 @@
         <input type="password" name="senha" placeholder="Password">
         <input type="submit" name="SendLogin" value="Acessar">
     </form>
-    <a  href="usuario.php">
+    <a  href="cadastro/usuario.php">Cadastro</a>
 </body>
 </html>
