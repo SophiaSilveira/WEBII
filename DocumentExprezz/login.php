@@ -9,11 +9,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
     <title>Login</title>
 </head>
-<body>
+<body class="bodyLogin">
    
-    <h3>Login</h3>
+    <h3 class="titleLogin">Bem Vindo ao Login</h3>
 
     <?php 
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -49,12 +50,14 @@
     ?>
     
     <form method="POST" action="#">
-        <label>Usuário</label>
-        <input type="text" name="usuario" placeholder="User" value="<?php if(isset($dados['usuario'])){ echo $dados['usuario'];}?>">
-        <label>Senha</label>
-        <input type="password" name="senha" placeholder="Password">
-        <input type="submit" name="SendLogin" value="Acessar">
+        <fieldset class="formLogin">
+        <label class="userLogin">CPF do Usuário</label>
+        <input class="dadosLogin" type="text" name="usuario" placeholder="User" value="<?php if(isset($dados['usuario'])){ echo $dados['usuario'];}?>">
+        <label class="userLogin">Senha do Usuário</label>
+        <input class="dadosLogin" type="password" name="senha" placeholder="Password">
+        <input class="buttonLogin" type="submit" name="SendLogin" value="Acessar">
+        </fieldset>
     </form>
-    <a  href="cadastro/usuario.php">Cadastro</a>
+    <a class="footerLogin" href="cadastro/usuario.php">Cadastro</a>
 </body>
 </html>

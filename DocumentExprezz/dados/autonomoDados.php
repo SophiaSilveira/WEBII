@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Corretor</title>
-    <link rel="stylesheet" href="Estilo.css">       
+    <link rel="stylesheet" href="estilo.css">       
     </head>
    
     <body>
@@ -81,7 +81,7 @@ if(isset($_POST['pdf'])){
 		//header('Window-target:../index.php#teste');
 		//header('Location:../index.php');
 		
-		echo "<script>window.open('../pdfImovel.php', '_blank')</script>";
+		echo "<script>window.open('../pdfAutonomo.php', '_blank')</script>";
 	}	
  }
  if(isset($_POST['excluir'])){
@@ -93,7 +93,7 @@ if(isset($_POST['pdf'])){
 	if($resultado==false){
 		var_dump($stm->errorInfo());
 	}else{
-		header('Location: imovelDados.php');
+		header('Location: autonomoDados.php');
 	}
  }
  if(isset($_POST['alterar'])){
@@ -130,7 +130,7 @@ if(isset($_POST['pdf'])){
 	if(!$resultado){
 		var_dump($stmt->errorInfo());
 	}else{
-		header('Location: imovelDados.php');
+		header('Location: autonomoDados.php');
 	}
  }
 ?>

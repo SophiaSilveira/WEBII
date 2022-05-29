@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Corretor</title>
-    <link rel="stylesheet" href="Estilo.css">       
+    <link rel="stylesheet" href="estilo.css">       
     </head>
    
     <body>

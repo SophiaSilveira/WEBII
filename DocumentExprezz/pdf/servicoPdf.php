@@ -1,3 +1,20 @@
+<?php
+    session_start();
+    ob_start();
+	include 'connection.php';
+    $tagForm="<form action='#' method='post'>";
+
+    $query_S = "SELECT s.id_S, s.data_S, u.nome, u.CPF FROM servico s 
+                    left join usuario u on u.CPF = s.CPF_U 
+                    WHERE s.id_S = :id"; 
+    $result_S = $conn -> prepare($query_S);
+    $result_S->bindParam(':id', $_SESSION['id_S'], PDO::PARAM_STR);
+    $result_S->execute();
+
+    $row_S = $result_S->fetch(PDO::FETCH_ASSOC);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
