@@ -1,15 +1,13 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 /*Configurações gerais*/
 
 
 
 /*Estilo do Login*/
 .bodyLogin{
-    background-image: linear-gradient(46deg, #144E73, #05AFF2, #05C7F2, #8FCBD9);
+    background-image: linear-gradient(46deg, #175881, #05AFF2, #05C7F2, #8FCBD9);
     background-repeat: no-repeat;
     height: 939px;
-    font-family: 'Bungee Shade'
 }
 .titleLogin{
     text-align: center;
