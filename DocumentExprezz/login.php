@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/estilo3.css">
     <title>Login</title>
 </head>
 <body class="bodyLogin">
@@ -48,16 +48,16 @@
             unset($_SESSION['msg']);
         }
     ?>
-    
     <form method="POST" action="#">
         <fieldset class="formLogin">
         <label class="userLogin">CPF do Usuário</label>
-        <input class="dadosLogin" type="text" name="usuario" placeholder="User" value="<?php if(isset($dados['usuario'])){ echo $dados['usuario'];}?>">
+        <input class="dadosLogin" type="text" name="usuario" placeholder="CPF do usuário" value="<?php if(isset($dados['usuario'])){ echo $dados['usuario'];}?>">
         <label class="userLogin">Senha do Usuário</label>
-        <input class="dadosLogin" type="password" name="senha" placeholder="Password">
+        <input class="dadosLogin" type="password" name="senha" placeholder="Senha do Usuário">
         <input class="buttonLogin" type="submit" name="SendLogin" value="Acessar">
         </fieldset>
     </form>
+    
     <a class="footerLogin" href="cadastro/usuario.php">Cadastro</a>
 </body>
 </html>
