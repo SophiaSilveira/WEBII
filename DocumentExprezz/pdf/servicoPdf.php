@@ -4,7 +4,9 @@
 	include 'connection.php';
     $tagForm="<form action='#' method='post'>";
 
-    $query_S = "SELECT s.id_S, s.data_S, u.nome, u.CPF FROM servico s 
+    $query_S = "SELECT s.id_S, s.descricao, s.nome_Contratante, s.cpf_Cnpj, s.data_Inicio, s.data_Final, 
+    s.quantidade_Mensal, s.lista_Atividade, s.garantia, s.data_S, s.CPF_U 
+                     FROM servico s 
                     left join usuario u on u.CPF = s.CPF_U 
                     WHERE s.id_S = :id"; 
     $result_S = $conn -> prepare($query_S);
@@ -47,6 +49,7 @@
     </nav>
     <section class="sectionText">
         <p>
+        <?php echo $row_S['id_S']?>
             O profissional (ou a empresa, caso você tenha um CNPJ ativo), (colocar seu nome ou o nome empresarial), com CPF/CNPJ de nº (colocar número do CPF ou CNPJ), declara que prestou serviço     de (fazer descrição geral do serviço), para o contratante (colocar nome da empresa contratante), com CPF/CNPJ de nº (colocar número do CPF ou CNPJ), no período de (colocar a quantidade    de dias) dias, entre (colocar a data inicial e final de execução do serviço) no valor mensal de R$ (descrever o valor numérico e por extenso do pagamento combinado).
         </p>
         <p>

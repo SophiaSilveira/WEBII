@@ -1,3 +1,20 @@
+<?php 
+    session_start();
+    ob_start();
+    include 'connection.php';
+
+    $query_A = "SELECT a.id_A, a.descriver_Atividade, a.renda_Mensal, a.data_A, a.CPF_U
+                FROM autonomo a 
+                    left join usuario u on u.CPF = a.CPF_U 
+                    WHERE a.id_A = :id"; 
+    $result_A = $conn -> prepare($query_A);
+    $result_A->bindParam(':id', $_SESSION['id_A'], PDO::PARAM_STR);
+    $result_A->execute();
+    
+    $row_A = $result_A->fetch(PDO::FETCH_ASSOC);
+        
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -65,7 +82,7 @@
     <section class="secParagraph">
         <p class="paragrafo">
             Eu ( nome completo )_______________________________________________________
-            RG nº____________________________CPF nº ________________________________,
+            RG nº____________________________CPF nº ___<?php echo $row_A['id_A']?>_____________________________,
             residente na Rua___________________________________________, nº ____________,
             Bairro________________________,cidade/estado_______________________________,
             CEP____________________, venho por meio desta DECLARAR para os devidos fins,

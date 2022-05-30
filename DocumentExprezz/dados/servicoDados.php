@@ -16,10 +16,11 @@
     <body>
 	<?php
         
-		$sql="SELECT s.id_S, s.data_Inicio, s.data_Final, s.data_S, s.CPF_U
+		$sql="SELECT s.id_S, s.descricao, s.nome_Contratante, s.cpf_Cnpj, s.data_Inicio, s.data_Final, 
+		s.quantidade_Mensal, s.lista_Atividade, s.garantia, s.data_S, s.CPF_U 
         FROM servico s
         left join usuario u on u.CPF = s.CPF_U 
-        WHERE CPF_U = '".$_SESSION['CPF']."'";
+        WHERE s.CPF_U = '".$_SESSION['CPF']."'";
 		$resultado=$conn->query($sql); 
 
 		if(($resultado) AND ($resultado->rowCount() != 0)){
@@ -99,16 +100,23 @@ if(isset($_POST['pdf'])){
  }
  if(isset($_POST['alterar'])){
 	$id=$_POST['id'];
-	$sql="SELECT id_S, data_Inicio, data_Final, data_S, CPF_U 
+	$sql="SELECT id_S, descricao, nome_Contratante, cpf_Cnpj, data_Inicio, data_Final, 
+	quantidade_Mensal, lista_Atividade, garantia, data_S, CPF_U 
 		from servico where id_S='".$id."'";
 	$resultado=$conn->query($sql);
 	$tabela=$resultado->fetchAll(PDO::FETCH_ASSOC);
 	foreach($tabela as $linha){
 		echo $tagForm;
-		echo "<input type='text' name='data_Inicio' value=".$linha['data_Inicio'].">";
-		echo "<input type='text' name='data_Final' value=".$linha['data_Final'].">";
-        echo "<input type='text' name='data_S' value=".$linha['data_S'].">";
-		echo "<input hidden type='text' name='id_s' value=".$linha['id_S'].">";
+		echo "<input type='text' name='descricao' value=".$linha['descricao'].">";
+		echo "<input type='text' name='nome_Contratante' value=".$linha['nome_Contratante'].">";
+        echo "<input type='text' name='cpf_Cnpj' value=".$linha['cpf_Cnpj'].">";
+		echo "<input type='date' name='data_Inicio' value=".$linha['data_Inicio'].">";
+		echo "<input type='date' name='data_Final' value=".$linha['data_Final'].">";
+        echo "<input type='text' name='quantidade_Mensal' value=".$linha['quantidade_Mensal'].">";
+		echo "<input type='text' name='lista_Atividade' value=".$linha['lista_Atividade'].">";
+		echo "<input type='text' name='garantia' value=".$linha['garantia'].">";
+        echo "<input type='date' name='data_S' value=".$linha['data_S'].">";
+		echo "<input hidden type='text' name='id_S' value=".$linha['id_S'].">";
 		echo "<input type='submit' name='confirmar' value='Confirmar'>";
 		echo "</form>";
 	}
@@ -116,16 +124,30 @@ if(isset($_POST['pdf'])){
  }
  if(isset($_POST['confirmar'])){
     $id_S = $_POST['id_S'];
+	$descricao=$_POST['descricao'];
+	$nome_Contratante=$_POST['nome_Contratante'];
+	$cpf_Cnpj=$_POST['cpf_Cnpj'];
 	$data_Inicio=$_POST['data_Inicio'];
 	$data_Final=$_POST['data_Final'];
+	$quantidade_Mensal=$_POST['quantidade_Mensal'];
+	$lista_Atividade=$_POST['lista_Atividade'];
+	$garantia=$_POST['garantia'];
 	$data_S=$_POST['data_S'];
 	
 	$sql="UPDATE servico SET 
-    data_Inicio=:data_Inicio,data_Final=:data_Final,data_S=:data_S
+    descricao=:descricao, nome_Contratante=:nome_Contratante, cpf_Cnpj=:cpf_Cnpj, data_Inicio=:data_Inicio,
+	 data_Final=:data_Final, quantidade_Mensal=:quantidade_Mensal, lista_Atividade=:lista_Atividade,
+	  garantia=:garantia, data_S=:data_S
 			WHERE id_S='".$id_S."'";
 	$stmt=$conn->prepare($sql);
+	$stmt->bindParam(':descricao',$descricao,PDO::PARAM_STR);
+	$stmt->bindParam(':nome_Contratante',$nome_Contratante,PDO::PARAM_STR);
+    $stmt->bindParam(':cpf_Cnpj',$cpf_Cnpj,PDO::PARAM_STR);
 	$stmt->bindParam(':data_Inicio',$data_Inicio,PDO::PARAM_STR);
 	$stmt->bindParam(':data_Final',$data_Final,PDO::PARAM_STR);
+    $stmt->bindParam(':quantidade_Mensal',$quantidade_Mensal,PDO::PARAM_STR);
+	$stmt->bindParam(':lista_Atividade',$lista_Atividade,PDO::PARAM_STR);
+	$stmt->bindParam(':garantia',$garantia,PDO::PARAM_STR);
     $stmt->bindParam(':data_S',$data_S,PDO::PARAM_STR);
 	$resultado=$stmt->execute();
 	if(!$resultado){
