@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Corretor</title>
+    <title>Imóvel dados</title>
     <link rel="stylesheet" href="estilo.css">       
     </head>
    
@@ -26,11 +26,11 @@
 			?>
 			<table border=1>
 			<tr>
-				<th>CPF</th>	
-				<th>Nome</th>
-				<th>Nome</th>
-				<th>Nome</th>	
-				<th>Data de Nascimento</th>	
+				<th>ID</th>	
+				<th>Data Inicio</th>
+				<th>Data Saida</th>
+				<th>Data documentoNome</th>	
+				<th>CPF Usuário</th>	
 				<th>Alterar</th>
 				<th>Excluir</th>
 				<th>PDF</th>	

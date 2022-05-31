@@ -18,6 +18,8 @@
     $primeiraData = new DateTime($row_I['anos_Inicio']);
     $segundaData = new DateTime($row_I['anos_Fim']);
     $intervalo = $primeiraData->diff($segundaData);
+
+    
         
 ?>
 
@@ -70,7 +72,27 @@
             Eu <?php echo $row_I['nome']?> residente do CEP <?php echo $row_I['cep']?>, rua <?php echo $row_I['rua']?>, 
             nº <?php echo $row_I['numero']?>, complemento <?php echo $row_I['complemento']?>, Bairro <?php echo $row_I['bairro']?>, 
             município de <?php echo $row_I['cidade']?>, RG nº <?php echo $row_I['rg']?>, CPF n° <?php echo $row_I['CPF']?>.
-            declaro para os devidos fins, que possuo a cerca de <?php echo $intervalo->y." de ".$row_I['anos_Inicio']." até ".$row_I['anos_Fim']?>  anos a posse contínua
+            declaro para os devidos fins, que possuo a cerca de 
+            <?php if($intervalo->y > 0 && $intervalo->y != 1){
+                echo $intervalo->y. " anos, ";
+                }
+                else if( $intervalo->y == 1){
+                    echo $intervalo->y. " ano, ";
+                }
+                else if($intervalo->y <= 0 && $intervalo->m > 0 && $intervalo->m != 1){
+                    echo $intervalo->m. " meses, ";
+                }
+                else if( $intervalo->y <= 0 && $intervalo->m == 1){
+                    echo $intervalo->m. " mês, ";
+                }
+                else if( $intervalo->y <= 0 && $intervalo->m <= 0 && $intervalo->d == 1){
+                    echo $intervalo->d. " dia, ";
+                }
+                else{
+                    echo $intervalo->d. " dias, ";
+                }
+            
+            echo "entre ".date('d/m/Y',strtotime($row_I['anos_Inicio']))." e ".date('d/m/Y',strtotime($row_I['anos_Fim']))?> a posse contínua
             e incontestável do imóvel acima referido, tendo constituído moradia, e sendo esta
             posse mansa e pacífica, nos termos da legislação pertinente. Declaro ainda, sob as
             penas da Lei, que não está em andamento nenhuma ação judicial tendo por objeto

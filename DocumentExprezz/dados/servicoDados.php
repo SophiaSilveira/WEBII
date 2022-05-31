@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Corretor</title>
+    <title>Prestação de Serviço dados</title>
     <link rel="stylesheet" href="estilo.css">       
     </head>
    
@@ -29,10 +29,16 @@
 			<table border=1>
 			<tr>
 				<th>ID</th>	
-				<th>Data de Nascimento</th>	
-				<th>Data de Inicio</th>
+				<th>Descrição</th>	
+				<th>Nome Contratante</th>
+				<th>CPF/CNPJ Contratante</th>
+				<th>Data Inicio</th>
 				<th>Data Final</th>
-				<th>CPF</th>
+				<th>Recebido</th>
+				<th>Lista Atividade</th>
+				<th>Garantia</th>
+				<th>Data Documento</th>
+				<th>CPF Usuario</th>
 				<th>Alterar</th>
 				<th>Excluir</th>	
 				<th>PDF</th>

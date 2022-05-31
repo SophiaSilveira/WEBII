@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Corretor</title>
+    <title>Autonomo Dados</title>
     <link rel="stylesheet" href="estilo.css">       
     </head>
    
@@ -26,11 +26,11 @@
 			?>
 			<table border=1>
 			<tr>
-				<th>CPF</th>	
-				<th>Nome</th>
-				<th>Nome</th>
-				<th>Nome</th>	
-				<th>Data de Nascimento</th>	
+				<th>ID</th>	
+				<th>Descrição</th>
+				<th>Renda Mensal</th>
+				<th>Data documento</th>	
+				<th>CPF Usuário</th>	
 				<th>Alterar</th>
 				<th>Excluir</th>
 				<th>PDF</th>	

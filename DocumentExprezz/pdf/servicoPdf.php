@@ -64,7 +64,18 @@
         }else{
             echo ", de CPF de nº ".$row_S['CPF'];
         }?>
-             declara que prestou serviço de <?php echo $row_S['descricao']?>, para o contratante <?php echo $row_S['nome_Contratante']?>, com CPF/CNPJ de nº <?php echo $row_S['cpf_Cnpj']?>, no período de <?php echo $intervalo->d ?> dias, entre <?php echo date('d/m/Y',strtotime($row_S['data_Inicio']))." até ".date('d/m/Y',strtotime($row_S['data_Final'])) ?> no valor mensal de $ <?php echo $row_S['quantidade_Mensal']?> reais.
+             declara que prestou serviço de <?php echo $row_S['descricao']?>, para o contratante <?php echo $row_S['nome_Contratante']?>, 
+             com CPF/CNPJ de nº <?php echo $row_S['cpf_Cnpj']?>, no período de 
+             <?php 
+                if($intervalo->d == 1){
+                    echo $intervalo->d. " dia, ";
+                    }
+                    else {
+                        echo $intervalo->d. " dias, ";
+                    }             
+             ?> 
+             entre <?php echo date('d/m/Y',strtotime($row_S['data_Inicio']))." até ".date('d/m/Y',strtotime($row_S['data_Final'])) ?> 
+             no valor mensal de $ <?php echo $row_S['quantidade_Mensal']?> reais.
         </p>
         <p>
             Declara, ainda, que todos os serviços abaixo foram executados com sucesso:
