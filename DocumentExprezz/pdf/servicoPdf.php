@@ -4,8 +4,8 @@
 	include 'connection.php';
     $tagForm="<form action='#' method='post'>";
 
-    $query_S = "SELECT u.nome, u.CPF, u.cnpj, u.namePjEm, u.estado, u.cidade, s.descricao, s.nome_Contratante, s.cpf_Cnpj, s.data_Inicio, s.data_Final, 
-    s.quantidade_Mensal, s.lista_Atividade, s.garantia, s.data_S, s.CPF_U
+    $query_S = "SELECT u.nome, u.CPF, u.cnpj, u.namePjEm, u.estado, u.cidade, s.descricao, s.nome_Contratante, s.cpf_Cnpj, s.data_Inicio, 
+    s.data_Final, s.quantidade_Mensal, s.lista_Atividade, s.garantia, s.data_S, s.CPF_U
             FROM servico s 
         left join usuario u on u.CPF = s.CPF_U 
         WHERE s.id_S = :id"; 
@@ -14,6 +14,10 @@
     $result_S->execute();
 
     $row_S = $result_S->fetch(PDO::FETCH_ASSOC);
+
+    $primeiraData = new DateTime($row_S['data_Inicio']);
+    $segundaData = new DateTime($row_S['data_Final']);
+    $intervalo = $primeiraData->diff($segundaData);
 ?>
 
 
@@ -60,7 +64,7 @@
         }else{
             echo ", de CPF de nº ".$row_S['CPF'];
         }?>
-             declara que prestou serviço de <?php echo $row_S['descricao']?>, para o contratante <?php echo $row_S['nome_Contratante']?>, com CPF/CNPJ de nº <?php echo $row_S['cpf_Cnpj']?>, no período de <?php echo $row_S['data_Inicio']."dias".$row_S['data_Final']?> dias, entre <?php echo $row_S['data_Inicio']." até ".$row_S['data_Final']?> no valor mensal de $ <?php echo $row_S['quantidade_Mensal']?> reais.
+             declara que prestou serviço de <?php echo $row_S['descricao']?>, para o contratante <?php echo $row_S['nome_Contratante']?>, com CPF/CNPJ de nº <?php echo $row_S['cpf_Cnpj']?>, no período de <?php echo $intervalo->d ?> dias, entre <?php echo date('d/m/Y',strtotime($row_S['data_Inicio']))." até ".date('d/m/Y',strtotime($row_S['data_Final'])) ?> no valor mensal de $ <?php echo $row_S['quantidade_Mensal']?> reais.
         </p>
         <p>
             Declara, ainda, que todos os serviços abaixo foram executados com sucesso:
@@ -79,7 +83,7 @@
         <p>
             Esta declaração confirma que todas as informações prestadas são verdadeiras.
         </p>
-        <p><?php echo $row_S['cidade']." - ".$row_S['estado'].", ".$row_S['data_S']?></p>        
+        <p><?php echo $row_S['cidade']." - ".$row_S['estado'].", ".date('d/m/Y',strtotime($row_S['data_S']))?></p>        
         <p> 
             Assinatura do/a declarante e carimbo da empresa <br>
             CPF do/a declarante:<?php echo $row_S['CPF']?>

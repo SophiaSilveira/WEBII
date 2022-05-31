@@ -97,7 +97,7 @@
     </section>
     <section class="secPara">    
         <p class="paraTree">
-        <?php echo $row_A['cidade']." - ".$row_A['estado'].", ".$row_A['data_A']?>.
+        <?php echo $row_A['cidade']." - ".$row_A['estado'].", ".date('d/m/Y',strtotime($row_A['data_A']))?>.
 
         </p>
         <p class="paraFour">
@@ -113,7 +113,7 @@
             rejudicar direito, criar obrigação ou alterar a verdade sobre fato juridicamente relevante”.
         </p>        
         <p clas="paraWeight">
-            __________________________ <br>
+            __________________________<br>
             Declaração de Trabalho Autônomo e cópia da Carteira de Trabalho e Previdência Social (CTPS)
             com folhas de identificação e última anotação de contrato de trabalho (se houver) e página seguinte
             em branco
