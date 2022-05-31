@@ -3,7 +3,10 @@
     ob_start();
     include 'connection.php';
 
-    $query_I = "SELECT i.id_I, i.data_I, u.nome, u.CPF FROM imovel i 
+    $query_I = "SELECT u.nome, u.rg, u.CPF, u.rua, u.numero, u.complemento, u.bairro, u.cidade, u.estado, u.cep, 
+    i.data_I, i.anos_Inicio, i.anos_Fim
+    
+    FROM imovel i 
                     left join usuario u on u.CPF = i.CPF_U 
                     WHERE i.id_I = :id"; 
     $result_I = $conn -> prepare($query_I);
@@ -21,7 +24,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Declaração de Autonomo</title>
+    <title>Declaração de Posse de Imóvel</title>
     <style> 
         .navHOne{
             text-align: center;
@@ -60,11 +63,10 @@
     </nav>
     <section class="sectionInitial">
         <p class="paragraphOne">
-            Eu <?php echo $row_I['nome']?>_________<?php echo $row_I['id_I']?>_____________________________________ residente à
-            _________________________________________________________, nº _______
-            complemento___________, Bairro ___________________, município de ________________, RG
-            n°__________________,CPF n° <?php echo $row_I['CPF']?>.
-            DECLARO para os devidos fins, que possuo a cerca de________ anos a posse contínua
+            Eu <?php echo $row_I['nome']?> residente do CEP <?php echo $row_I['cep']?>, rua <?php echo $row_I['rua']?>, 
+            nº <?php echo $row_I['numero']?>, complemento <?php echo $row_I['complemento']?>, Bairro <?php echo $row_I['bairro']?>, 
+            município de <?php echo $row_I['cidade']?>, RG nº <?php echo $row_I['rg']?>, CPF n° <?php echo $row_I['CPF']?>.
+            DECLARO para os devidos fins, que possuo a cerca de <?php echo $row_I['anos_Inicio']." até ".$row_I['anos_Fim']?>  anos a posse contínua
             e incontestável do imóvel acima referido, tendo constituído moradia, e sendo esta
             posse mansa e pacífica, nos termos da legislação pertinente. Declaro ainda, sob as
             penas da Lei, que não está em andamento nenhuma ação judicial tendo por objeto
@@ -72,7 +74,7 @@
             ou outros). 
         </p>
         <p class="paragraphTree"> 
-            Viçosa, _______ de _______________de _____.
+            <?php echo $row_I['cidade']." - ".$row_I['estado'].", ".$row_I['data_I']?>.
         </p>
     </section>
     <footer>    
