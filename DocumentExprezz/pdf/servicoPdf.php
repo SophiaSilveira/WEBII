@@ -4,11 +4,11 @@
 	include 'connection.php';
     $tagForm="<form action='#' method='post'>";
 
-    $query_S = "SELECT s.id_S, s.descricao, s.nome_Contratante, s.cpf_Cnpj, s.data_Inicio, s.data_Final, 
-    s.quantidade_Mensal, s.lista_Atividade, s.garantia, s.data_S, s.CPF_U 
-                     FROM servico s 
-                    left join usuario u on u.CPF = s.CPF_U 
-                    WHERE s.id_S = :id"; 
+    $query_S = "SELECT u.nome, u.CPF, u.cnpj, u.namePjEm, u.estado, u.cidade, s.descricao, s.nome_Contratante, s.cpf_Cnpj, s.data_Inicio, s.data_Final, 
+    s.quantidade_Mensal, s.lista_Atividade, s.garantia, s.data_S, s.CPF_U
+            FROM servico s 
+        left join usuario u on u.CPF = s.CPF_U 
+        WHERE s.id_S = :id"; 
     $result_S = $conn -> prepare($query_S);
     $result_S->bindParam(':id', $_SESSION['id_S'], PDO::PARAM_STR);
     $result_S->execute();
@@ -49,29 +49,40 @@
     </nav>
     <section class="sectionText">
         <p>
-        <?php echo $row_S['id_S']?>
-            O profissional (ou a empresa, caso você tenha um CNPJ ativo), (colocar seu nome ou o nome empresarial), com CPF/CNPJ de nº (colocar número do CPF ou CNPJ), declara que prestou serviço     de (fazer descrição geral do serviço), para o contratante (colocar nome da empresa contratante), com CPF/CNPJ de nº (colocar número do CPF ou CNPJ), no período de (colocar a quantidade    de dias) dias, entre (colocar a data inicial e final de execução do serviço) no valor mensal de R$ (descrever o valor numérico e por extenso do pagamento combinado).
+        <?php if($row_S['namePjEm'] != NULL){
+            echo "A Empresa ".$row_S['namePjEm'];
+        }else{
+            echo "O profissional ".$row_S['nome'];
+        }?>
+
+        <?php if($row_S['cnpj'] != NULL){
+            echo ", de CNPJ de nº ".$row_S['cnpj'];
+        }else{
+            echo ", de CPF de nº ".$row_S['CPF'];
+        }?>
+             declara que prestou serviço de <?php echo $row_S['descricao']?>, para o contratante <?php echo $row_S['nome_Contratante']?>, com CPF/CNPJ de nº <?php echo $row_S['cpf_Cnpj']?>, no período de <?php echo $row_S['data_Inicio']."dias".$row_S['data_Final']?> dias, entre <?php echo $row_S['data_Inicio']." até ".$row_S['data_Final']?> no valor mensal de $ <?php echo $row_S['quantidade_Mensal']?> reais.
         </p>
         <p>
             Declara, ainda, que todos os serviços abaixo foram executados com sucesso:
+                
         </p>
         <p>
-            (descrever todos os serviços, ordenando todos eles com lista e descrição básica).
+            <?php echo $row_S['lista_Atividade']?>.
         </p>
     </section>
     <section class="sectionText">    
         <p>
-            O contratado afirma que garante X (colocar a quantidade de dias de garantia) dias de garantia, a contar a partir desta data.
+            O contratado afirma que garante <?php echo $row_S['garantia']?> dias de garantia, a contar a partir desta data.
         </p>
     </section>
     <footer class="sectionText">
         <p>
             Esta declaração confirma que todas as informações prestadas são verdadeiras.
         </p>
-        <p>Local, _____,_______,_____.</p>        
+        <p><?php echo $row_S['cidade']." - ".$row_S['estado'].", ".$row_S['data_S']?></p>        
         <p> 
-            Assinatura do/a declarante e carimbo da empresa (caso haja) <br>
-            CPF do/a declarante:_____________________
+            Assinatura do/a declarante e carimbo da empresa <br>
+            CPF do/a declarante:<?php echo $row_S['CPF']?>
         </p>
     </footer>     
 </body>

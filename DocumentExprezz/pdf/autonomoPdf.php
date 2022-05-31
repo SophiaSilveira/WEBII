@@ -3,7 +3,8 @@
     ob_start();
     include 'connection.php';
 
-    $query_A = "SELECT a.id_A, a.descriver_Atividade, a.renda_Mensal, a.data_A, a.CPF_U
+    $query_A = "SELECT u.nome, u.rg, u.CPF, u.rua, u.numero, u.bairro, u.cidade, u.estado, u.cep, 
+    a.descriver_Atividade, a.renda_Mensal, a.data_A
                 FROM autonomo a 
                     left join usuario u on u.CPF = a.CPF_U 
                     WHERE a.id_A = :id"; 
@@ -81,14 +82,14 @@
     </nav>
     <section class="secParagraph">
         <p class="paragrafo">
-            Eu ( nome completo )_______________________________________________________
-            RG nº____________________________CPF nº ___<?php echo $row_A['id_A']?>_____________________________,
-            residente na Rua___________________________________________, nº ____________,
-            Bairro________________________,cidade/estado_______________________________,
-            CEP____________________, venho por meio desta DECLARAR para os devidos fins,
+            Eu <?php echo $row_A['nome']?> de
+            RG nº <?php echo $row_A['rg']?> CPF nº <?php echo $row_A['CPF']?>,
+            residente na Rua <?php echo $row_A['rua']?>, nº <?php echo $row_A['numero']?>,
+            Bairro <?php echo $row_A['bairro']?>, cidade <?php echo $row_A['cidade']?>, estado <?php echo $row_A['estado']?>,
+            CEP <?php echo $row_A['cep']?>, venho por meio desta declarar para os devidos fins,
             que não mantenho vínculo empregatício com pessoa física ou jurídica mas que exerço
-            atividade autônoma de _______________________________e percebo mensalmente
-            rendimentos no valor de R$ _____________________.
+            atividade autônoma de <?php echo $row_A['descriver_Atividade']?> e recebo mensalmente
+            rendimentos no valor de R$ <?php echo $row_A['renda_Mensal']?>.
         </p>
         <p class="paraTwo"> 
             Declaro também estar ciente das penalidades legais* a que estou sujeito (a)
@@ -96,7 +97,7 @@
     </section>
     <section class="secPara">    
         <p class="paraTree">
-            _________________,______ de __________________ de ______.
+        <?php echo $row_A['cidade']." - ".$row_A['estado'].", ".$row_A['data_A']?>.
 
         </p>
         <p class="paraFour">
