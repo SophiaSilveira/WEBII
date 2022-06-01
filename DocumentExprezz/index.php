@@ -17,13 +17,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilo3.css">
+    <link rel="stylesheet" href="css/estilo.css">
     <title>Projeto Final Parte 1</title>
 </head>
 
 <body class="body ">
     <main class="main flex">
+       
         <header class="header">
+            
             <h3 class="menuIndex">Bem vindo, <?php Echo $_SESSION['nome']?>!</h3>
             <h3 class="menuIndex">CPF <?php Echo $_SESSION['CPF']?>!</h3>
             <a class="sairIndex" href="sair.php">Sair</a>
