@@ -96,8 +96,8 @@
         </p>
         <p><?php echo $row_S['cidade']." - ".$row_S['estado'].", ".date('d/m/Y',strtotime($row_S['data_S']))?></p>        
         <p> 
-            Assinatura do/a declarante e carimbo da empresa <br>
-            CPF do/a declarante:<?php echo $row_S['CPF']?>
+            Assinatura do/a declarante e carimbo da empresa. <br>
+            CPF do/a declarante: <?php echo $row_S['CPF']."."?>
         </p>
     </footer>     
 </body>

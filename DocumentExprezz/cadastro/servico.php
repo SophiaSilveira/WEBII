@@ -34,6 +34,7 @@
             $CPF_U = $_SESSION['CPF'];
             $descricao = $_POST['descricao'];
             $nome_Contratante = $_POST['nome_Contratante'];
+            //$cpf_Cnpj = sha1($_POST['cpf_Cnpj']);
             $cpf_Cnpj = $_POST['cpf_Cnpj'];
             $data_Inicio = $_POST['data_Inicio'];
             $data_Final = $_POST['data_Final'];
