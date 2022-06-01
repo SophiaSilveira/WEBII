@@ -52,6 +52,7 @@
             $stmt->bindParam(':descricao',$descricao,PDO::PARAM_STR);
             $stmt->bindParam(':nome_Contratante',$nome_Contratante,PDO::PARAM_STR);
             $stmt->bindParam(':cpf_Cnpj',$cpf_Cnpj,PDO::PARAM_STR);
+            //$stmt->bindParam(':cpf_Cnpj',sha1($cpf_Cnpj),PDO::PARAM_STR);
             $stmt->bindParam(':data_Inicio',$data_Inicio,PDO::PARAM_STR);
             $stmt->bindParam(':data_Final',$data_Final,PDO::PARAM_STR);
             $stmt->bindParam(':quantidade_Mensal',$quantidade_Mensal,PDO::PARAM_STR);
