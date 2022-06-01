@@ -11,16 +11,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo.css">
-    <title>Declaração A</title>
+    <title>Declaração Autonomo</title>
 </head>
 <body>
-    <main>
-        <h1>Declaração de autônomo</h1>
+    <main class="mainAutonomo">
+        <h1 class="titleAutonomo">Declaração de autônomo</h1>
         <form method="post" action="#">
-            <input type="text" name="descriver_Atividade" placeholder="Descrever Atividade" required><br>
-            <input  type="text" name="renda_Mensal" placeholder="Reda Aproximada mensal" required><br>
-            <input type="date" name="data_A" required>
-            <input type="submit" value="Salvar" name="salvar">
+            <label class="titleLabel" for="descriver_Atividade">Descrever Atividade</label><br>
+            <input class="inputLogin" type="text" name="descriver_Atividade" placeholder="Descrever Atividade" required><br>
+            <label class="titleLabel" for="renda_Mensal">Renda Mensal Aproximada</label><br>
+            <input class="inputLogin" type="text" name="renda_Mensal" placeholder="Renda Aproximada mensal" required><br>
+            <label class="titleLabel" for="data_A">Data de Emissão do Documento</label><br>
+            <input class="titleData" type="date" name="data_A" required><br>
+            <input class="buttonAutonomo" type="submit" value="Salvar" name="salvar">
         </form>
         <?php
             if(isset($_POST['salvar'])){

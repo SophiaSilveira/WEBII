@@ -15,19 +15,28 @@
     <title>Declaração S</title>
 </head>
 <body>
-    <main>
-        <h1>Declaração de Prestação de Serviço</h1>
+    <main class="mainAutonomo">
+        <h1 class="titleServ">Declaração de Prestação de Serviço</h1>
         <form method="post" action="#">
-            <input type="text" name="descricao" placeholder="Descrição" required><br>
-            <input  type="text" name="nome_Contratante" placeholder="Nome Contratante" required><br>
-            <input type="text" name="cpf_Cnpj" placeholder="CPF ou CNPJ do contratante" required><br>
-            <input type="date" name="data_Inicio" required><br>
-            <input type="date" name="data_Final" required><br>
-            <input type="text" name="quantidade_Mensal" placeholder="Total recebido pelo Contratante" required><br>
-            <input type="text" name="lista_Atividade" placeholder="Listar Atividades Feitas" required><br>
-            <input type="text" name="garantia" placeholder="Garantia" required><br>
-            <input type="date" name="data_S" required>
-            <input type="submit" value="Salvar" name="salvar">
+            <label class="titleLab" for="descriver_Atividade">Descrição do Serviço</label><br>
+            <input class="inputLog" type="text" name="descricao" placeholder="Descrição" required><br>
+            <label class="titleLab" for="descriver_Atividade">Nome Completo do Contratante</label><br>
+            <input class="inputLog" type="text" name="nome_Contratante" placeholder="Nome Contratante" required><br>
+            <label class="titleLab" for="descriver_Atividade">CPF ou CNPJ do Contratante</label><br>
+            <input class="inputLog" type="text" name="cpf_Cnpj" placeholder="CPF ou CNPJ do contratante" required><br>
+            <label class="titleLab" for="descriver_Atividade">Data de Início do Serviço</label><br>
+            <input class="titleDat" type="date" name="data_Inicio" required><br>
+            <label class="titleLab" for="descriver_Atividade">Data Final do Serviço</label><br>
+            <input class="titleDat" type="date" name="data_Final" required><br>
+            <label class="titleLab" for="descriver_Atividade">Total Recebido pelo Contratante</label><br>
+            <input class="inputLog" type="text" name="quantidade_Mensal" placeholder="Total recebido pelo Contratante" required><br>
+            <label class="titleLab" for="descriver_Atividade">Listar Atividades Feitas</label><br>
+            <input class="inputLog" type="text" name="lista_Atividade" placeholder="Listar Atividades Feitas" required><br>
+            <label class="titleLab" class="titleLab" for="descriver_Atividade">Garantia</label><br>
+            <input class="inputLog" type="text" name="garantia" placeholder="Garantia" required><br>
+            <label class="titleLab" for="descriver_Atividade">Data de Emissão do Documento</label><br>
+            <input class="titleDat" type="date" name="data_S" required><br>
+            <input class="buttonServico" type="submit" value="Salvar" name="salvar">
         </form>
         <?php
             if(isset($_POST['salvar'])){

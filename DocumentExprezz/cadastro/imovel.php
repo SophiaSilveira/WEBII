@@ -15,13 +15,16 @@
     <title>Declaração I</title>
 </head>
 <body>
-    <main>
-        <h1>Declaração de Imóvel</h1>
+    <main class="mainAutonomo">
+        <h1 class="titleAutonomo">Declaração de Imóvel</h1>
         <form method="post" action="#">
-            <input type="date" name="anos_Inicio" required><br>
-            <input  type="date" name="anos_Fim" required><br>
-            <input type="date" name="data_I" required><br>
-            <input type="submit" value="Salvar" name="salvar">
+            <label class="titleLabel" for="anos_Inicio">Data de Início da Posse</label><br>
+            <input class="titleData" type="date" name="anos_Inicio" required><br>
+            <label class="titleLabel" for="anos_Inicio">Data Final da Posse</label><br>
+            <input class="titleData" type="date" name="anos_Fim" required><br>
+            <label class="titleLabel" for="anos_Inicio">Data de Emissão do Documento</label><br>
+            <input class="titleData" type="date" name="data_I" required><br>
+            <input class="buttonAutonomo" type="submit" value="Salvar" name="salvar">
         </form>
         <?php
             if(isset($_POST['salvar'])){

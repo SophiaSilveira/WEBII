@@ -243,6 +243,91 @@ li{
     display: flex;
     margin-top: auto;
 }
+/*cadastro autonomo*/
+.mainAutonomo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titleAutonomo{
+    color: #2e2f30;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 0px 3px 5px #686868;
+    padding: 30px;
+}
+
+.titleLabel{
+    font-size: 23px;
+    line-height: 40px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.inputLogin{
+    padding: 15px;
+    border-radius: 5px;
+    border-width: 0;
+    box-shadow: 0px 3px 8px #686868;
+    text-align: center;
+}
+
+.titleData{
+    font-size: 20px;
+    border-radius: 5px;
+    border-width: 0;
+    padding: 5px;
+    box-shadow: 0px 3px 8px #686868;
+    margin-bottom: 30px;
+}
+
+.buttonAutonomo{
+    padding: 8px;
+    width: 30%;
+    border-radius: 15px;
+    border-width: 0;
+    box-shadow: 0px 3px 8px #686868;
+}
+/*cadastro imovel*/
+/*o cadastro do imovel foi usado o mesmo do autonomo*/
+/*cadastro do serviço*/
+.titleServ{
+    color: #2e2f30;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 0px 3px 5px #686868;
+    padding: 20px;
+}
+
+.titleLab{
+    font-size: 18px;
+    line-height: 25px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.inputLog{
+    padding: 8px;
+    border-radius: 5px;
+    border-width: 0;
+    box-shadow: 0px 3px 8px #686868;
+    text-align: center;
+}
+
+.titleDat{
+    font-size: 15px;
+    border-radius: 5px;
+    border-width: 0;
+    padding: 3px;
+    box-shadow: 0px 3px 8px #686868;
+    margin-bottom: 13px;
+}
+
+.buttonServico{
+    padding: 8px;
+    width: 30%;
+    border-radius: 15px;
+    border-width: 0;
+    box-shadow: 0px 3px 8px #686868;
+}
 /* Formulário para Cadastro de Usuário*/
 UBody{
     width: 100%;
